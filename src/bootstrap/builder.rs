@@ -283,6 +283,7 @@ impl StepDescription {
             }
 
             if !attempted_run {
+                should_runs.iter().for_each(|s| eprintln!("{:?}", s.paths));
                 panic!("error: no rules matched {}", path.display());
             }
         }
@@ -1306,6 +1307,9 @@ impl<'a> Builder<'a> {
                 // flesh out rpath support more fully in the future.
                 rustflags.arg("-Zosx-rpath-install-name");
                 Some("-Wl,-rpath,@loader_path/../lib")
+            } else if target.contains("oceanic") {
+                rustflags.arg("-Clink-args=-zorigin");
+                Some("--rpath=$ORIGIN/../lib")
             } else if !target.contains("windows") {
                 rustflags.arg("-Clink-args=-Wl,-z,origin");
                 Some("-Wl,-rpath,$ORIGIN/../lib")

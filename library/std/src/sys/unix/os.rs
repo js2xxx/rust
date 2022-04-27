@@ -65,6 +65,7 @@ extern "C" {
         link_name = "__error"
     )]
     #[cfg_attr(target_os = "haiku", link_name = "_errnop")]
+    #[cfg_attr(target_os = "oceanic", link_name = "__libc_errno")]
     fn errno_location() -> *mut c_int;
 }
 
@@ -427,7 +428,7 @@ pub fn current_exe() -> io::Result<PathBuf> {
     crate::fs::read_to_string("sys:exe").map(PathBuf::from)
 }
 
-#[cfg(any(target_os = "fuchsia", target_os = "l4re"))]
+#[cfg(any(target_os = "fuchsia", target_os = "l4re", target_os = "oceanic"))]
 pub fn current_exe() -> io::Result<PathBuf> {
     use crate::io::ErrorKind;
     Err(io::const_io_error!(ErrorKind::Unsupported, "Not yet implemented!"))

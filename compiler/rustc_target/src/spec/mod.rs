@@ -85,6 +85,7 @@ mod windows_gnu_base;
 mod windows_msvc_base;
 mod windows_uwp_gnu_base;
 mod windows_uwp_msvc_base;
+mod oceanic_base;
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub enum LinkerFlavor {
@@ -938,6 +939,8 @@ supported_targets! {
     ("i686-pc-windows-gnu", i686_pc_windows_gnu),
     ("i686-uwp-windows-gnu", i686_uwp_windows_gnu),
     ("x86_64-uwp-windows-gnu", x86_64_uwp_windows_gnu),
+
+    ("x86_64-pc-oceanic", x86_64_pc_oceanic),
 
     ("aarch64-pc-windows-msvc", aarch64_pc_windows_msvc),
     ("aarch64-uwp-windows-msvc", aarch64_uwp_windows_msvc),
