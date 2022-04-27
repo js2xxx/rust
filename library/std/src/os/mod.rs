@@ -133,14 +133,14 @@ pub mod l4re;
 pub mod macos;
 #[cfg(target_os = "netbsd")]
 pub mod netbsd;
+#[cfg(target_os = "oceanic")]
+pub mod oceanic;
 #[cfg(target_os = "openbsd")]
 pub mod openbsd;
 #[cfg(target_os = "redox")]
 pub mod redox;
 #[cfg(target_os = "solaris")]
 pub mod solaris;
-#[cfg(target_os = "oceanic")]
-pub mod oceanic;
 
 #[cfg(target_os = "solid_asp3")]
 pub mod solid;

@@ -73,6 +73,7 @@ mod linux_musl_base;
 mod linux_uclibc_base;
 mod msvc_base;
 mod netbsd_base;
+mod oceanic_base;
 mod openbsd_base;
 mod redox_base;
 mod solaris_base;
@@ -85,7 +86,6 @@ mod windows_gnu_base;
 mod windows_msvc_base;
 mod windows_uwp_gnu_base;
 mod windows_uwp_msvc_base;
-mod oceanic_base;
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub enum LinkerFlavor {
